@@ -57,9 +57,9 @@
         }
 
         /* Background hijau untuk peserta yang lolos mulai dari Moch Abimanyu */
-.highlight-green {
-    background-color: #d4edda !important; /* Warna hijau muda */
-}
+        .highlight-green {
+            background-color: #d4edda !important; /* Warna hijau muda */
+        }
 
         .notification-section {
             background: #f9f9f9;
@@ -71,15 +71,19 @@
         }
 
         /* Tambahkan gaya baru untuk teks */
-    .custom-text {
-        font-size: 1.2em; /* Sesuaikan ukuran font sesuai kebutuhan */
-        font-style: italic; /* Membuat teks menjadi miring */
-        color: #555; /* Warna teks sesuai */
-    }
+        .custom-text {
+            font-size: 1.2em; /* Sesuaikan ukuran font sesuai kebutuhan */
+            font-style: italic; /* Membuat teks menjadi miring */
+            color: #555; /* Warna teks sesuai */
+        }
 
+        .info-text {
+            font-size: 1em;
+            color: #888;
+            margin-top: 5px;
+        }
 
     </style>
-    
 </head>
 <body>
 <div class="container">
@@ -89,17 +93,32 @@
             <div class="articles card">
                 <div class="card-header d-flex align-items-center">
                     <h2 class="h3">Total Peserta</h2>
-                    <div class="badge badge-rounded bg-green">8 New</div>
+                    <div class="badge badge-rounded bg-green">8</div>
                 </div>
                 <div class="card-body no-padding">
+                    <!-- Info text to explain the click functionality -->
+                    <div class="info-text">
+                        Klik nama peserta untuk melihat hasil render mereka.
+                    </div>
+
                     <!-- 8 peserta items -->
                     <div class="item d-flex align-items-center">
-                        <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="text"><a href="#"><h3 class="h5">Yehezkiel Gilroy Fatdian</h3></a><small>Universitas Tunas Pembangunan</small></div>
+                        <div class="image">
+                            <img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle">
+                        </div>
+                        <div class="text">
+                            <a href="img2.html" target="_blank"><h3 class="h5">Yehezkiel Gilroy Fatdian</h3></a>
+                            <small>Universitas Tunas Pembangunan</small>
+                        </div>
                     </div>
                     <div class="item d-flex align-items-center">
-                        <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="text"><a href="#"><h3 class="h5">Aisyah Aslamatus Salekhah</h3></a><small>Universitas Brawijaya</small></div>
+                        <div class="image">
+                            <img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle">
+                        </div>
+                        <div class="text">
+                            <a href="img.html" target="_blank"><h3 class="h5">Tiara Indah Pradini</h3></a>
+                            <small>Universitas Diponegoro</small>
+                        </div>
                     </div>
                     <div class="item d-flex align-items-center">
                         <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
@@ -107,7 +126,7 @@
                     </div>
                     <div class="item d-flex align-items-center">
                         <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="text"><a href="#"><h3 class="h5">Tiara Indah Pradini</h3></a><small>Universitas Diponegoro</small></div>
+                        <div class="text"><a href="#"><h3 class="h5">Aisyah Aslamatus Salekhah</h3></a><small>Universitas Brawijaya</small></div>
                     </div>
                     <div class="item d-flex align-items-center">
                         <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
@@ -149,11 +168,11 @@
                     <div class="item d-flex align-items-center highlight-green">
                         <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#"><h3 class="h5">Moch Abimanyu</h3></a><small class="custom-text">Staff 3D Visual</small></div>
-                        </div>
+                    </div>
                     <div class="item d-flex align-items-center highlight-green">
                         <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#"><h3 class="h5">Jihade Kufiita Ardalli </h3></a><small class="custom-text">Staff Asisstant Project</small></div>
-                        </div>
+                    </div>
                     <div class="item d-flex align-items-center highlight-green">
                         <div class="image"><img src="assets/img/images.png" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#"><h3 class="h5">Muhammad Maulid Alghifari</h3></a><small class="custom-text">Staff Drafter</small></div>
@@ -173,6 +192,21 @@
         </div>
     </div>
 </div>
+
+<!-- Tambahan JavaScript di bawah sebelum penutup tag </body> -->
+<script>
+    document.querySelectorAll('.open-image').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Cari elemen img dalam item yang sama
+            const img = link.closest('.item').querySelector('img');
+            if (img) {
+                // Buka gambar di tab baru
+                window.open(img.src, '_blank');
+            }
+        });
+    });
+</script>
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
